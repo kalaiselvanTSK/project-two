@@ -1,0 +1,25 @@
+function hours_am_pm(time) {
+        var hours = time[0] + time[1];
+        var min = time[2] + time[3];
+        if (hours < 12) {
+            return hours + ':' + min + ' AM';
+        } else {
+            hours=hours - 12;
+            hours=(hours.length < 10) ? '0'+hours:hours;
+            return hours+ ':' + min + ' PM';
+        }
+    }
+    $('#b1').click(function(){
+         var n = $('#textbox1').val();
+         var n1 =n.split('_');
+         var time = hours_am_pm(n1[0]+n1[1]);
+        $('#result').text(time);
+    }); 
+    $('#b2').click(function(){
+        var n = $('#textbox1').val();
+         var n1 =n.split('_');
+        var time = am_pm_to_hours(n1[0]+':'+n1[1]+' '+n1[2]);
+        $('#result').text(time);
+    });
+    
+});
